@@ -1,3 +1,6 @@
+const audio = document.querySelector('.audio_background');
+
+
 const game = () => {
     let pScore = 0;
     let cScore = 0;
@@ -17,6 +20,8 @@ const game = () => {
         match.classList.add("fadeIn");
         match.classList.remove("fadeOut");
         winner.textContent='Choose your option'
+
+        audio.play();
       });
     };
     //Play Match
@@ -53,6 +58,9 @@ const game = () => {
         });
       });
     };
+
+    let audio_background = document.getElementsByTagName('audio');
+
     
     let updateScore = () => {
       let playerScore = document.querySelector(".player-score p");
@@ -72,6 +80,9 @@ const game = () => {
             match.classList.add("fadeOut");
             match.classList.remove("fadeIn");
             winner.textContent = '';
+
+            audio.pause();
+
           },1500)
           pScore=0;
           cScore=0;
@@ -95,7 +106,7 @@ const game = () => {
           playerScore.textContent = pScore ;
           computerScore.textContent = cScore ;
           
-         
+         audio.pause();
         }
     };
   
